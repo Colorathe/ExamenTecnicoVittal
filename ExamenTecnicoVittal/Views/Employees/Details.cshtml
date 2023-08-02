@@ -1,0 +1,33 @@
+﻿@model ExamenTecnicoVittal.Models.Employee
+
+<div class="container mt-4">
+    <h2>Detalle del Empleado</h2>
+    <form method="post" asp-action="Edit" asp-route-id="@Model.EmployeeID">
+        <div class="mb-3">
+            <label class="form-label">ID</label>
+            <input type="text" class="form-control disabled" name="EmployeeID" value="@Model.EmployeeID" readonly />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Apellido</label>
+            <input type="text" class="form-control" name="LastName" value="@Model.LastName" />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Nombre</label>
+            <input type="text" class="form-control" name="FirstName" value="@Model.FirstName" />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Dni</label>
+            <input type="text" class="form-control" name="DNI" value="@Model.DNI" />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Correo Electrónico</label>
+            <input type="email" class="form-control" name="Email" value="@Model.Email" />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Celular</label>
+            <input type="tel" class="form-control" name="Phone" value="@Model.Phone" />
+        </div>
+        <button type="submit" class="btn btn-success">Editar</button>
+        <a asp-action="Index" asp-controller="Employees" class="btn btn-secondary">Volver a la Lista</a>
+    </form>
+</div>

@@ -1,0 +1,29 @@
+﻿@model IEnumerable<ExamenTecnicoVittal.Models.Employee>
+
+ 
+<div class="container mt-4">
+    <h2>Listado de Empleados</h2>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var employee in Model)
+            {
+                <tr>
+                    <td>@employee.EmployeeID</td>
+                    <td>@employee.FirstName</td>
+                    <td>@employee.LastName</td>
+                    <td><a class="btn btn-primary btn-sm" asp-action="Details" asp-controller="Employees" asp-route-id="@employee.EmployeeID">Ver Detalles</a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <a asp-action="Create" asp-controller="Employees" class="btn btn-success">Crear Empleado</a>
+</div>
+

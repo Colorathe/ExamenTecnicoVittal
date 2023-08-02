@@ -1,0 +1,67 @@
+﻿@model ExamenTecnicoVittal.Models.LoginViewModel
+@{
+    Layout = null;
+}
+
+@if (TempData.ContainsKey("ErrorMessage"))
+{
+    <div class="alert alert-danger">
+        @TempData["ErrorMessage"]
+    </div>
+}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Sign In - Vittal</title>
+
+    <!-- GOOGLE FONTS -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500|Poppins:400,500,600,700|Roboto:400,500" rel="stylesheet" />
+    <link href="https://cdn.materialdesignicons.com/4.4.95/css/materialdesignicons.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/ExamenTecnicoVittal.styles.css" asp-append-version="true" />
+
+</head>
+<body class="" id="body">
+    <div class="container d-flex align-items-center justify-content-center vh-100">
+        <div class="row justify-content-center">
+            <div class="col-lg-6 col-md-10">
+                <div class="card">
+                    <div class="card-header bg-primary text-center">
+                        <a href="#">
+                            <span class="text-white text-uppercase fw-bold">Vittal</span>
+                        </a>
+                    </div>
+
+                    <div class="card-body p-5">
+                        <h4 class="text-dark mb-5">Iniciar Sesión</h4>
+
+                        <form asp-controller="Account" asp-action="Login" method="post">
+                            <div class="row">
+                                <div class="form-group col-md-12 mb-4">
+                                    <input type="text" class="form-control input-lg" asp-for="Username" placeholder="Usuario" required>
+                                </div>
+
+                                <div class="form-group col-md-12 ">
+                                    <input type="password" class="form-control input-lg" asp-for="Password" placeholder="Contaseña" required>
+                                </div>
+
+                                <button type="submit" class="btn btn-primary btn-block mb-4 mt-3">Iniciar Sesión</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+</body>
+</html>
