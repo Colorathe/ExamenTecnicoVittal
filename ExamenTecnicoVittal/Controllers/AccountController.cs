@@ -31,17 +31,6 @@ namespace ExamenTecnicoVittal.Controllers
 
                 if (user != null)
                 {
-                    var claims = new List<Claim>
-            {
-                new Claim(ClaimTypes.Name, model.Username)
-            };
-
-                    var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
-
-                    var authProperties = new AuthenticationProperties();
-
-                    await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity), authProperties);
-
                     return RedirectToAction("Index", "Employees");
                 }
                 else

@@ -6,7 +6,6 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ExamenTecnicoVittal.Controllers
 {
-    [Authorize]
     public class EmployeesController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -16,20 +15,17 @@ namespace ExamenTecnicoVittal.Controllers
             _context = context;
         }
 
-        // GET: Employees
         public async Task<IActionResult> Index()
         {
             return View(await _context.Employees.ToListAsync());
         }
 
-        // GET: Employees/Create
         public IActionResult Create()
         {
             var newEmployee = new Employee();
             return View(newEmployee);
         }
 
-        // POST: Employees/Create
         [HttpPost]
         public async Task<IActionResult> Create([Bind("FirstName,LastName,DNI,Email,Phone")] Employee employee)
         {
@@ -43,7 +39,6 @@ namespace ExamenTecnicoVittal.Controllers
             return View(employee);
         }
 
-        // GET: Employees/Details
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -62,7 +57,6 @@ namespace ExamenTecnicoVittal.Controllers
             return View(employee);
         }
 
-        // GET: Employees/Edit
         [HttpGet]
         public async Task<IActionResult> Edit(int? id)
         {
@@ -81,9 +75,7 @@ namespace ExamenTecnicoVittal.Controllers
             return View(employee);
         }
 
-        // POST: Employees/Edit
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, Employee employee)
         {
             if (id != employee.EmployeeID)
